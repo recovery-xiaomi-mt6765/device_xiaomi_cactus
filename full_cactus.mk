@@ -14,9 +14,14 @@
 # limitations under the License.
 #
 
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+## Specify phone tech before including full_phone
 
-$(call inherit-product, device/xiaomi/cactus/full_cactus.mk)
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-PRODUCT_NAME := omni_cactus
+# Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := cactus
+PRODUCT_NAME := full_cactus
+PRODUCT_BRAND := xiaomi
+PRODUCT_MODEL := Redmi 6a
+PRODUCT_MANUFACTURER := Xiaomi
