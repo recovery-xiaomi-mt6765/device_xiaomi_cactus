@@ -21,14 +21,14 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
         export FOX_SYSTEM_INSTALL_PARTITION=/dev/block/platform/bootdevice/by-name/system
         # OrangeFox
       	export OF_SCREEN_H=2160
-	    	export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
-	    	export OF_USE_MAGISKBOOT=1
-	    	export OF_AB_DEVICE=0
-    		add_lunch_combo omni_"$FDEVICE"-eng
-    		add_lunch_combo omni_"$FDEVICE"-userdebug
-    		export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
-		export FOX_DISABLE_APP_MANAGER=1
-		export FOX_DELETE_AROMAFM=1
-		export OF_MAINTAINER=MegaFon929
+	export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
+	export OF_USE_MAGISKBOOT=1
+	export OF_AB_DEVICE=0
+    	export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
+	export FOX_DISABLE_APP_MANAGER=1
+	export FOX_DELETE_AROMAFM=1
+	export OF_MAINTAINER=MegaFon929
+    	add_lunch_combo omni_"$FDEVICE"-eng
+    	add_lunch_combo omni_"$FDEVICE"-userdebug
 fi
 #
