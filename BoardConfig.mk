@@ -21,12 +21,19 @@ TARGET_BOARD_PLATFORM := mt6765
 TARGET_BOOTLOADER_BOARD_NAME := mt6765
 TARGET_NO_BOOTLOADER := true
 
+# Resolution
+TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 1440
+
 # Architecture
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_VARIANT := cortex-a53
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := cortex-a53
+TARGET_USES_64_BIT_BINDER := true
+ALLOW_MISSING_DEPENDENCIES := true
 
 # Debugging
 TARGET_USES_LOGD := true
@@ -57,6 +64,8 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 
 # Recovery
 RECOVERY_SDCARD_ON_DATA := true
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
 
 # TWRP
 TW_EXTRA_LANGUAGES := true
@@ -67,40 +76,12 @@ TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_EXCLUDE_TWRPAPP := true
 TW_SCREEN_BLANK_ON_BOOT := true
 
-# NOTE - Dont use '-' or blank spaces in flag values , otherwise it will create build errors or other bugs in recovery (Excluding SHRP_PATH,SHRP_REC). 
-# Path of your SHRP Tree
-SHRP_PATH := device/xiaomi/cactus
-# Maintainer name
-SHRP_MAINTAINER := yarpopkov
-# Device codename
+#SHRP
 SHRP_DEVICE_CODE := cactus
-# put this 0 if device has no EDL mode
-SHRP_EDL_MODE := 0
-SHRP_EXTERNAL := /external_sd
-SHRP_INTERNAL := /sdcard
-SHRP_OTG := /usb_otg
-# Put 0 to disable flashlight
-SHRP_FLASH := 0
-# Max Brightness of LED (Optional)
-SHRP_FLASH_MAX_BRIGHTNESS := 200
-# Check your device's recovery path, dont use blindly
-SHRP_REC := /dev/block/bootdevice/by-name/recovery
-# Use this flag only if your device is A/B
-SHRP_AB := true
-# Recovery Type (It can be treble,normal,SAR) [Only for About Section]
-SHRP_REC_TYPE := Treble
-# Recovery Type (It can be A/B or A_only) [Only for About Section]
+SHRP_PATH := device/xiaomi/cactus
+SHRP_MAINTAINER := MegaFon929
 SHRP_DEVICE_TYPE := A/B
-# SHRP Padding Flag (Only for rounded corner devices.)
-SHRP_STATUSBAR_RIGHT_PADDING := 40
-SHRP_STATUSBAR_LEFT_PADDING := 40
-# SHRP Express, enables on-the-fly theme patching (also persistent) + persistent lock
-SHRP_EXPRESS := true
-# SHRP Dark mode, use this flag to have dark theme set by default
-SHRP_DARK := false
-# Force mount system in /system despite SAR policy, useful for maintaining backwards compatibility and/or Samsung devices.
-SHRP_NO_SAR_AUTOMOUNT := true
-
-# Verity
-BOARD_AVB_ENABLE := true
-
+SHRP_REC := /dev/block/platform/bootdevice/by-name/recovery
+SHRP_FLASH := 0
+SHRP_REC_TYPE := Normal
+SHRP_SKIP_DEFAULT_ADDON_4 := true
