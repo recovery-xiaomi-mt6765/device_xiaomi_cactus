@@ -1,4 +1,4 @@
-LOCAL_PATH := device/xiaomi/cactus
+DEVICE_PATH := device/xiaomi/cactus
 
 BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
